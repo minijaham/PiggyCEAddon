@@ -28,8 +28,7 @@ public function itemHeld(PlayerItemHeldEvent $event) {
                         " ",
                         TextFormat::RESET . TextFormat::YELLOW . $enchant->getDescription()
                         ];
-                        if ($event->getItem()->getLore() === $lore){ //returns nothing
-                        } else {
+                        if ($event->getItem()->getLore() !== $lore){ 
                             $player->getInventory()->removeItem($item);
                             $item = $event->getItem()->setLore($lore);
                             $player->getInventory()->addItem($item);
